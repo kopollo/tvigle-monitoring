@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  backend:
+    container_name: backend
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: always
+    env_file: ../universal_template/.env
+    environment:
+      - POSTGRES_HOST=db
+    build: ../universal_template/backend
+    ports:
+      - "8000:8000"
+    command: sh -c "alembic upgrade head && python -m app"
+
+#  frontend:
+#    container_name: frontend
+#    build: ./frontend
+#    ports:
+#      - "5173:5173"
+#    depends_on:
+#      - backend
+
+  db:
+    container_name: db
+    image: postgres:13
+    env_file: ../universal_template/.env
+    ports:
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}" ]
+      interval: 5s
+      retries: 5
+      start_period: 5s
+      timeout: 2s
+
+
+networks:
+  mynetwork:
+    driver: bridge
