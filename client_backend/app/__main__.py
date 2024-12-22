@@ -5,7 +5,7 @@ from app.endpoints import api_router
 
 app = FastAPI(
     title="Very top cool best api",
-    description="...",
+    description="Система мониторинга для сбора и анализа качества воспроизведения в реальном времени",
     version="1.0.0",
 )
 app.include_router(api_router)
