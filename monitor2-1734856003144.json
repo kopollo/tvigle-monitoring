@@ -67,7 +67,7 @@
           "exemplar": true,
           "expr": "avg(rate(initial_playback_delay_ms_sum[1m])) by (region) / avg(rate(initial_playback_delay_ms_count[1m])) by (region)",
           "interval": "",
-          "legendFormat": "",
+          "legendFormat": "{{region}}",
           "queryType": "randomWalk",
           "refId": "A"
         }
@@ -165,7 +165,7 @@
           "exemplar": true,
           "expr": "sum(rate(initial_playback_delay_ms_count[5m])) by (region, device_type)",
           "interval": "",
-          "legendFormat": "",
+          "legendFormat": "{{region}} - {{device_type}}",
           "queryType": "randomWalk",
           "refId": "A"
         }
@@ -263,13 +263,15 @@
           "exemplar": true,
           "expr": "sum(rate(rebuffer_count_total[1m])) by (device_type)",
           "interval": "",
-          "legendFormat": "",
+          "legendFormat": "{{device_type}}",
           "queryType": "randomWalk",
           "refId": "A"
         }
       ],
       "thresholds": [],
+      "timeFrom": null,
       "timeRegions": [],
+      "timeShift": null,
       "title": "Сравнение частоты ребуферингов между различными типами устройств",
       "tooltip": {
         "shared": true,
@@ -361,7 +363,7 @@
           "expr": "avg(rate(total_stall_duration_ms_sum[1m])) by (region) / avg(rate(total_stall_duration_ms_count[1m])) by (region) / 1000",
           "instant": false,
           "interval": "",
-          "legendFormat": "",
+          "legendFormat": "{{region}}",
           "refId": "dsfsdf"
         }
       ],
@@ -420,7 +422,7 @@
           "exemplar": true,
           "expr": "sum(cdn_response_time_ms_sum) by (region) / sum(cdn_response_time_ms_count) by (region)",
           "interval": "",
-          "legendFormat": "",
+          "legendFormat": "{{region}}",
           "queryType": "randomWalk",
           "refId": "A"
         }
@@ -437,12 +439,12 @@
     "list": []
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
-  "title": "monitor",
+  "title": "monitor2",
   "uid": "vHozUUSHz",
-  "version": 2
+  "version": 3
 }
