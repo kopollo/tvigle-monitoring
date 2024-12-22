@@ -27,7 +27,7 @@ docker-compose up --force-recreate
 Перейдите по адресу `http://localhost:3333/dashboards` и импортируйте шаблон Grafana (можно скачать из корневой директории)
 
 Дашборд будет выглядеть примерно так:
-![image](https://github.com/user-attachments/assets/11ebe055-24da-488d-85b4-31e848083d47)
+![image](https://github.com/user-attachments/assets/ab93b8d1-eb24-46a0-9254-6749b0b9fee0)
 
 ## Какие метрики мы считаем
 - Средняя задержка старта видео по регионам за последнюю минуту
